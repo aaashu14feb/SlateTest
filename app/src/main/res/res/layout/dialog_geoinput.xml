@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/width_dialog"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextView.Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_standard"
+        android:text="@string/label_create_geofence" />
+
+    <EditText
+        android:id="@+id/geofence_name"
+        style="@style/EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_name"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/geofence_latitude"
+        style="@style/EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789.-"
+        android:hint="@string/hint_latitude"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        tools:targetApi="o" />
+
+
+    <EditText
+        android:id="@+id/geofence_longitude"
+        style="@style/EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789.-"
+        android:hint="@string/hint_longitude"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/geofence_radius"
+        style="@style/EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789."
+        android:hint="@string/hint_radius"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        tools:targetApi="o" />
+
+</LinearLayout>
