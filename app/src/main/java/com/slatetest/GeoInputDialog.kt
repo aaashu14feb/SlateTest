@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.slatetest.model.Geofence
@@ -48,15 +49,15 @@ class GeoInputDialog : DialogFragment() {
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 when {
-                    isValidData() -> {
+                    isValidData(view) -> {
                         listener?.let {
-                            val geofence = Geofence().apply {
-                                name = (geofence_latitude.text.toString())
-                                latitude = (java.lang.Double.parseDouble(geofence_latitude.text.toString()))
-                                longitude = (java.lang.Double.parseDouble(geofence_longitude.text.toString()))
-                                radius = (java.lang.Float.parseFloat(geofence_radius.text.toString()))
+                            geofence = Geofence().apply {
+                                name = (view?.findViewById(R.id.geofence_name) as EditText).text.toString()
+                                latitude = java.lang.Double.parseDouble((view?.findViewById(R.id.geofence_latitude) as EditText).text.toString())
+                                longitude = java.lang.Double.parseDouble((view?.findViewById(R.id.geofence_longitude) as EditText).text.toString())
+                                radius = java.lang.Float.parseFloat((view?.findViewById(R.id.geofence_radius) as EditText).text.toString())
                             }
-                            it.onDialogPositiveClick(this@GeoInputDialog, geofence)
+                            it.onDialogPositiveClick(this@GeoInputDialog, geofence!!)
                             dialog.dismiss()
                         }
                     }
@@ -67,13 +68,13 @@ class GeoInputDialog : DialogFragment() {
         return dialog
     }
 
-    private fun isValidData(): Boolean {
+    private fun isValidData(view: View?): Boolean {
         var valid = true
 
-        val name = geofence_name.text.toString()
-        val latitudeString = geofence_latitude.text.toString()
-        val longitudeString = geofence_longitude.text.toString()
-        val radiusString = geofence_radius.text.toString()
+        val name = (view?.findViewById(R.id.geofence_name) as EditText).text.toString()
+        val latitudeString = (view?.findViewById(R.id.geofence_latitude) as EditText).text.toString()
+        val longitudeString = (view?.findViewById(R.id.geofence_longitude) as EditText).text.toString()
+        val radiusString = (view?.findViewById(R.id.geofence_radius) as EditText).text.toString()
 
         if (name.isBlank() || latitudeString.isBlank() || longitudeString.isBlank() || radiusString.isBlank()) {
             valid = false
