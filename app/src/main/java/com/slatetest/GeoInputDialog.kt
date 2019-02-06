@@ -23,15 +23,21 @@ class GeoInputDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val etName = (view?.findViewById(R.id.geofence_name) as EditText)
+        val etLatitude = (view?.findViewById(R.id.geofence_latitude) as EditText)
+        val etLongitudeString = (view?.findViewById(R.id.geofence_longitude) as EditText)
+        val etRadiusString = (view?.findViewById(R.id.geofence_radius) as EditText)
+
         geofence?.let {
-            geofence_name.setText(it.name)
-            geofence_latitude.setText(it.latitude.toString())
-            geofence_longitude.setText(it.longitude.toString())
-            geofence_radius.setText(it.radius.toString())
+            etName.setText(it.name)
+            etLatitude.setText(it.latitude.toString())
+            etLongitudeString.setText(it.longitude.toString())
+            etRadiusString.setText(it.radius.toString())
         }
-        geofence_latitude.hint = String.format(resources.getString(R.string.hint_latitude), Constants.Geometry.MinLatitude, Constants.Geometry.MaxLatitude)
-        geofence_longitude.hint = String.format(resources.getString(R.string.hint_longitude), Constants.Geometry.MinLongitude, Constants.Geometry.MaxLongitude)
-        geofence_radius.hint = String.format(resources.getString(R.string.hint_radius), Constants.Geometry.MinRadius, Constants.Geometry.MaxRadius)
+        etLatitude.hint = String.format(resources.getString(R.string.hint_latitude), Constants.Geometry.MinLatitude, Constants.Geometry.MaxLatitude)
+        etLongitudeString.hint = String.format(resources.getString(R.string.hint_longitude), Constants.Geometry.MinLongitude, Constants.Geometry.MaxLongitude)
+        etRadiusString.hint = String.format(resources.getString(R.string.hint_radius), Constants.Geometry.MinRadius, Constants.Geometry.MaxRadius)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -65,6 +71,8 @@ class GeoInputDialog : DialogFragment() {
                 }
             }
         }
+
+        onViewCreated(view!!, savedInstanceState);
         return dialog
     }
 

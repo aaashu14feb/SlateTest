@@ -6,9 +6,9 @@
 
     <!-- Hints -->
     <string name="hint_name">Wi-FI SSID</string>
-    <string name="hint_latitude" formatted="false">Latitude (%3.1f\u00B0 to %3.1f\u00B0)</string>
-    <string name="hint_longitude" formatted="false">Longitude (%4.1f\u00B0 to %4.1f\u00B0) </string>
-    <string name="hint_radius" formatted="false">Radius (%3.2f to %3.1f km)</string>
+    <string name="hint_latitude">Latitude (%3.1f\u00B0 to %3.1f\u00B0)</string>
+    <string name="hint_longitude">Longitude (%4.1f\u00B0 to %4.1f\u00B0) </string>
+    <string name="hint_radius">Radius (%3.2f to %3.1f km)</string>
 
     <string name="AreYouSure">Are you sure?</string>
     <string name="Yes">Yes</string>

@@ -89,17 +89,6 @@ class HomeActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         // create GoogleApiClient
         createGoogleApi()
 
-
-        /*findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                GeoInputDialog dialogFragment = new GeoInputDialog();
-                dialogFragment.setListener(HomeActivity.this);
-                dialogFragment.setGeofence(geofence);
-                dialogFragment.show(getSupportFragmentManager(), "GeoInputDialog");
-            }
-        });*/
-
         brGeofence = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 isInsideArea = intent.getBooleanExtra(BROADCAST_TASK_ENTER, false)
@@ -349,9 +338,6 @@ class HomeActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
             if (locationMarker != null)
                 locationMarker!!.remove()
             locationMarker = map!!.addMarker(markerOptions)
-            val zoom = 14f
-            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, zoom)
-            //            map.animateCamera(cameraUpdate);
         }
     }
 
